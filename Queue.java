@@ -1,77 +1,77 @@
 public class Queue {
 	Node first;
-	Node last;
 	int length;
 	
 	public Queue(int init_length)
 	{
 		first = null;
-		last = null; 
 		length = init_length;
 	}
 	
 	public int length()
 	{
 		int length = 0;
-		for(Node cursor = first; cursor.next != null; cursor = cursor.next)
+		Node cursor = first;
+		while(cursor != null)
 		{
 			length++;
+			cursor = cursor.next;
 		}
-		System.out.println("Length of the queue is currently: \n");
+		System.out.println("Length of the queue is currently:");
 		System.out.println(length);
-		return length;
+		System.out.println("xxxxxxx");
+		return (length);
 	}
 	
 	public void printQueue()
 	{
-		System.out.println(first.element.groceries);
-		System.out.println(first.next.element.groceries);
-		System.out.println(last.element.groceries);
+		Node cursor = first;
+		while(cursor != null)
+		{
+			System.out.println(cursor.element.groceries);
+			cursor = cursor.next;
+		}
 		
 	}
 	
 	public void enqueue(Customer new_customer)
 	{
+		Node cursor = first;
 		if (first == null)
 		{
 			first = new Node(new_customer);
-			last = first.next;
 		}
 		else
 		{
-			if(last == null)
-			{				
-				last = new Node(new_customer);
-				first.next = last;
-			}
-			else
+			while(cursor.next != null)
 			{
-				last.next = new Node(new_customer);
-				last = last.next;		
+				cursor = cursor.next;
 			}
+			cursor.next = new Node(new_customer);
 		}
 		
 	}
 	
 	public void dequeue()
 	{
-		if(first == null && last == null){
+		if(first == null)
+		{
 			System.out.println("Trying to dequeue already empty queue LOL");
 		}
 		else
 		{
-			if(first.next == last)
+			if(first.next == null)
 			{
-				first = last;
+				first = null;
 			}
 			else
 			{
-				first = first.next;	
+				first = first.next;
 			}
 			
 		}
-	
 	}
+	
 	
 	public Customer first()
 	{
