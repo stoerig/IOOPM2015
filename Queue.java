@@ -26,17 +26,6 @@ public class Queue {
 		return (length);
 	}
 	
-	//printar hur många groceries Customers i Queue:n har
-	public void printQueue()
-	{
-		Node cursor = first;
-		while(cursor != null)
-		{
-			System.out.println(cursor.element.groceries);
-			cursor = cursor.next;
-		}	
-	}
-	
 	//Ställer en Customer sist i Queue
 	public void enqueue(Customer new_customer)
 	{
@@ -47,17 +36,9 @@ public class Queue {
 		}
 		else
 		{
-			
 			last.next = new Node(new_customer);
 			last = last.next;
 			
-			/*
-			while(cursor.next != null)
-			{
-				cursor = cursor.next;
-			}
-			cursor.next = new Node(new_customer);
-			*/
 		}
 		
 	}
@@ -88,5 +69,17 @@ public class Queue {
 	public Customer first()
 	{
 		return first.element;
+	}
+	
+	//printar hur många groceries Customers i Queue:n har
+	public void printQueue()
+	{
+		Node cursor = first;
+		while(cursor != null)
+		{
+			System.out.println("gör du det här?");
+			System.out.println(cursor.element.groceries);
+			cursor = cursor.next;
+		}	
 	}
 }

@@ -7,7 +7,7 @@ public class Register extends Queue
 	public Register()
 	{
 		queue = new Queue();
-		open = true;
+		open = false;
 	}
 	
 	// öppnar Register
@@ -88,7 +88,9 @@ public class Register extends Queue
 	// printar hurvida Register är open/closed och hur Register:s Queue är.
 	public void printRegister()
 	{
+		System.out.println("Register är open?");
 		System.out.println(open);
+		System.out.println("Register har hur många i Queue?");
 		System.out.println(queue.length);
 	}
 	

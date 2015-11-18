@@ -6,7 +6,13 @@ public class Store extends Register
 	public Store(int quantity_of_registers)
 	{
 		registers = new Register[quantity_of_registers];
-		registers[0] = new Register();	
+		int i = 0;
+		while(i<quantity_of_registers)
+		{
+			registers[i] = new Register();
+			i++;
+		}
+		registers[0].open = true;
 	}
 	
 	
@@ -31,20 +37,20 @@ public class Store extends Register
 	//Lägger en Customer i den kassa-kö som är kortast. Den går alltså igenom Kassa-arrayen(Store)
 	public void newCustomer(Customer c)
 	{
-		int min = registers[0].length();
+		int min = registers[0].queue.length;
 		int index_of_shortest_queue = 0;
 		for(int i = 1; i < registers.length; i++)
 		{
-			if(registers[i] != null)
+			if(registers[i].open)
 			{
-				if(registers[i].length() < min)
+				if(registers[i].queue.length < min)
 				{
-				min = registers[i].length();
+				min = registers[i].queue.length;
 				index_of_shortest_queue = i;
 				}
 			}
 		}
-		registers[index_of_shortest_queue].enqueue(c);
+		registers[index_of_shortest_queue].queue.enqueue(c);
 		//Här aumenterar vi kassans kös variabel length
 		registers[index_of_shortest_queue].queue.length++;
 	}
@@ -67,14 +73,15 @@ public class Store extends Register
 	}
 	
 	//Går igenom Kassa-arrayen(Store) och öppnar första bästa kassa som är stängd.
+	//Jag funderar på att om när man skapar en Store så kanske man borde Skapa kassor och ha dom som closed alla förutom den första(index 0)
 	public void openNewRegister()
 	{
 		int i = 0;
-		while(registers[i].isOpen())
+		while(registers[i].open == true)
 		{
 			i++;
 		}
-		registers[i].open();
+		registers[i].open = true;
 	}
 	
 	//utför step från klassen Register på alla öppna kassor.
