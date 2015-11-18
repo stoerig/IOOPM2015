@@ -3,6 +3,7 @@ public class QueueTest {
 
 	public static void main(String args[])
 	{
+		//skapar tio kunder vi utför testerna med
 		Customer first = new Customer(0,1);
 		Customer second = new Customer(0,2);
 		Customer third = new Customer(0,3);
@@ -14,17 +15,10 @@ public class QueueTest {
 		Customer nineth = new Customer(0,9);
 		Customer tenth = new Customer(0,10);
 		
-		/*
-		q.enqueue(first);
-		q.enqueue(second);
-		q.enqueue(third);
-		q.enqueue(fourth);
-		q.printQueue();
-		q.length();
-		*/
-		
+		//fantasin var på topp så jag döpte affären till vad en riktig affär heter
 		Store Ica_Luthis = new Store(4);
 		
+		//sätter först in sex nya customers, sen öppnar den en ny kassa. sen sätter den in fyra nya customers.
 		Ica_Luthis.newCustomer(first);
 		Ica_Luthis.newCustomer(second);
 		Ica_Luthis.newCustomer(third);
