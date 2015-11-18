@@ -32,8 +32,7 @@ public class Register extends Queue
 	
 	public void step()
 	{
-		Customer customer_to_be_served = first();
-		customer_to_be_served.serve();
+		first().serve();
 	}
 	
 	public boolean hasCustomers()

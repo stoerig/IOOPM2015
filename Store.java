@@ -5,7 +5,7 @@ public class Store extends Register
 	public Store(int quantity_of_registers)
 	{
 		registers = new Register[quantity_of_registers];
-		
+		registers[0].open();	
 	}
 	
 	public float getAverageQueueLength()
@@ -37,18 +37,40 @@ public class Store extends Register
 		registers[index_of_shortest_queue].enqueue(c);
 	}
 	
-	public void step()
+	public Customer[] getDoneCustomers()
 	{
+		Customer[] done_customers = new Customer[registers.length];
+		int i = 0;
+		for(Register r : registers)
+		{
+			if(r.first().isDone())
+			{
+				done_customers[i]= r.first();
+				i++;
+			}
+		}
+		return done_customers;
 	}
 	
 	public void openNewRegister()
 	{
+		int i = 0;
+		while(registers[i].isOpen())
+		{
+			i++;
+		}
+		registers[i].open();
+	}
+	
+	public void step()
+	{
+		for(Register r : registers)
+		{
+			if(r.isOpen())
+			{
+			r.step();
+			}
+		}
 		
 	}
-	
-	public Customer[] getDoneCustomers()
-	{
-		return null;
-	}
-	
 }
