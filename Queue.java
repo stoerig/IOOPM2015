@@ -1,25 +1,28 @@
 public class Queue {
 	Node first;
+	Node last;
 	int length;
 	
-	public Queue(int init_length)
+	public Queue()
 	{
 		first = null;
-		length = init_length;
+		last = null;
+		length = 0;
 	}
 	
 	public int length()
 	{
-		int length = 0;
+		int current_length = 0;
 		Node cursor = first;
 		while(cursor != null)
 		{
-			length++;
+			current_length++;
 			cursor = cursor.next;
 		}
 		System.out.println("Length of the queue is currently:");
-		System.out.println(length);
+		System.out.println(current_length);
 		System.out.println("xxxxxxx");
+		length = current_length;
 		return (length);
 	}
 	
@@ -36,18 +39,24 @@ public class Queue {
 	
 	public void enqueue(Customer new_customer)
 	{
-		Node cursor = first;
 		if (first == null)
 		{
 			first = new Node(new_customer);
+			last = first;
 		}
 		else
 		{
+			
+			last.next = new Node(new_customer);
+			last = last.next;
+			
+			/*
 			while(cursor.next != null)
 			{
 				cursor = cursor.next;
 			}
 			cursor.next = new Node(new_customer);
+			*/
 		}
 		
 	}

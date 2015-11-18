@@ -7,7 +7,7 @@ public class QueueTest {
 		Customer second = new Customer(0,2);
 		Customer third = new Customer(0,3);
 		Customer fourth = new Customer(0,4);
-		Queue q = new Queue(0);
+		Queue q = new Queue();
 		
 		q.enqueue(first);
 		q.enqueue(second);
@@ -19,10 +19,6 @@ public class QueueTest {
 		q.dequeue();
 		q.printQueue();
 		q.length();
-
-		q.dequeue();
-		q.printQueue();
-		q.length();
 		
 		q.dequeue();
 		q.printQueue();
@@ -33,6 +29,9 @@ public class QueueTest {
 		q.length();
 		
 		q.dequeue();
+		q.printQueue();
+		q.length();
 		
+		q.dequeue();
 		}
 }
