@@ -3,6 +3,7 @@ public class Queue {
 	Node last;
 	int length;
 	
+	//Constructorn för Queue, skapar en tom kö
 	public Queue()
 	{
 		first = null;
@@ -10,6 +11,7 @@ public class Queue {
 		length = 0;
 	}
 	
+	// Uppdaterar och returnerar Queues length variabel.
 	public int length()
 	{
 		int current_length = 0;
@@ -19,13 +21,12 @@ public class Queue {
 			current_length++;
 			cursor = cursor.next;
 		}
-		System.out.println("Length of the queue is currently:");
-		System.out.println(current_length);
-		System.out.println("xxxxxxx");
+		current_length++;
 		length = current_length;
 		return (length);
 	}
 	
+	//printar hur många groceries Customers i Queue:n har
 	public void printQueue()
 	{
 		Node cursor = first;
@@ -33,10 +34,10 @@ public class Queue {
 		{
 			System.out.println(cursor.element.groceries);
 			cursor = cursor.next;
-		}
-		
+		}	
 	}
 	
+	//Ställer en Customer sist i Queue
 	public void enqueue(Customer new_customer)
 	{
 		if (first == null)
@@ -61,6 +62,7 @@ public class Queue {
 		
 	}
 	
+	//Tar bort första Customer i queue
 	public void dequeue()
 	{
 		if(first == null)
@@ -81,6 +83,7 @@ public class Queue {
 		}
 	}
 	
+	//returnerar första Customer i Queue
 	
 	public Customer first()
 	{
