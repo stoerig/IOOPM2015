@@ -36,13 +36,16 @@ public class Register extends Queue
 	//Tar ut den första Customer i Queue och sänker groceries med -1.
 	public void step()
 	{
-		first().serve();
+		if(hasCustomers())
+		{
+			queue.first().serve();
+		}
 	}
 	
 	//kollar om Queue är tom
 	public boolean hasCustomers()
 	{
-		if (queue.length() > 0)
+		if (queue.length > 0)
 		{
 			return true;
 		}
@@ -55,14 +58,16 @@ public class Register extends Queue
 	//Kollar om Customer som är först i Queue är klar.
 	public boolean currentCustomerIsDone()
 	{
+		
 		if (queue.first().isDone() == true)
 		{
 			return true;
 		}
 		else
 		{
-			return false;
+	    	return false;
 		}
+		
 	}
 	
 	//lägger Customer C sist i Queue

@@ -30,6 +30,8 @@ public class QueueTest {
 		Ica_Luthis.newCustomer(eight);
 		Ica_Luthis.newCustomer(nineth);
 		Ica_Luthis.newCustomer(tenth);
+		
+		
 		System.out.println("Kassa 0 har såhär många i Queue");
 		System.out.println(Ica_Luthis.registers[0].queue.length);
 		System.out.println("Kassa 1 har såhär många i Queue");
@@ -39,6 +41,18 @@ public class QueueTest {
 		System.out.println("Kassa 1:s Queue ser ut såhär:\n");
 		Ica_Luthis.registers[1].queue.printQueue();
 		
+		System.out.println("Average queue length in the store is currently:");
+		System.out.println(Ica_Luthis.getAverageQueueLength());
+		
+		Ica_Luthis.step();
+		System.out.println(Ica_Luthis.registers[0].queue.length);
+		Ica_Luthis.registers[0].queue.printQueue();
+		System.out.println(Ica_Luthis.registers[1].queue.length);
+		Ica_Luthis.registers[1].queue.printQueue();
+		Ica_Luthis.registers[0].printValueOfFirst();
+		Ica_Luthis.registers[1].printValueOfFirst();
+		Ica_Luthis.getDoneCustomers();
+
 		
 		}
 }

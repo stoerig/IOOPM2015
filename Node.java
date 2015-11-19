@@ -9,13 +9,3 @@ public class Node {
 		next = null;
 	}
 	
-	public Node get_nextCustomer()
-	{
-		return next;
-	}
-	
-	public void set_nextNode(Node next_node)
-	{
-		next = next_node;
-	}
-}

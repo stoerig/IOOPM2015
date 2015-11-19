@@ -25,7 +25,7 @@ public class Store extends Register
 		{
 			if(r.isOpen())
 			{
-			customers_in_store = customers_in_store + r.queue.length(); 
+			customers_in_store = customers_in_store + r.queue.length; 
 			number_of_registers++;
 			}
 		}
@@ -51,8 +51,6 @@ public class Store extends Register
 			}
 		}
 		registers[index_of_shortest_queue].queue.enqueue(c);
-		//Här aumenterar vi kassans kös variabel length
-		registers[index_of_shortest_queue].queue.length++;
 	}
 	
 	
@@ -63,9 +61,9 @@ public class Store extends Register
 		int i = 0;
 		for(Register r : registers)
 		{
-			if(currentCustomerIsDone())
+			if(r.currentCustomerIsDone())
 			{
-				done_customers[i]= r.first();
+				done_customers[i]= r.removeCurrentCustomer();
 				i++;
 			}
 		}

@@ -43,4 +43,14 @@ public class Customer
 			return false;
 	}
 	
+	public int getAmountOfDoneCustomers(Customer[] done_customers)
+	{
+		int i = 0;
+		for(Customer c : done_customers)
+		{
+				i++;
+		}
+		return i;
+	}
+	
 }
