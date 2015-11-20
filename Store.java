@@ -101,10 +101,20 @@ public class Store
 			{
 				if(r.isOpen())
 				{
+				System.out.println("First pekar på:");
+				System.out.println(r.getFirstPointer());
 				//här vill jag printa ut vilket index i Kassa-arrayen(Store) kassan jag printar ut har.
 				r.printRegister();
 				}
 			}
+		}
+	}
+	
+	public void fill_Store(Customer[] test_customers)
+	{
+		for(Customer c : test_customers)
+		{
+			this.newCustomer(c);
 		}
 	}
 	

@@ -48,6 +48,7 @@ public class Customer
 		int i = 0;
 		for(Customer c : done_customers)
 		{
+				System.out.println(c.groceries);
 				i++;
 		}
 		return i;

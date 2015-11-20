@@ -77,11 +77,10 @@ public class Queue
 		}
 	
 		//printar hur många groceries Customers i Queue:n har
-	/*	public void printQueue()
+		public void printQueue()
 		{
-			System.out.println(first);
 			int i = 0;
-			Node cursor = new Node(); 
+			Node cursor = new Node(null); 
 			cursor = first;
 			while(cursor != null)
 			{
@@ -91,7 +90,7 @@ public class Queue
 				i++;
 			}	
 		}
-		*/
+		
 		
 		public void printValueOfFirst()
 		{

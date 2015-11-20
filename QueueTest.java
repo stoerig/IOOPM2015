@@ -1,59 +1,125 @@
-
+import java.util.*;
 public class QueueTest {
+	
+	
+	public static Customer[] spawnCustomers(int amount_of_customers_to_spawn)
+	{
+	
+		Customer[] test_customers = new Customer[amount_of_customers_to_spawn];
+		
+		for(int i = 0; i < amount_of_customers_to_spawn; i++)
+		{
+		
+			test_customers[i] = new Customer(0, i);
+		}
+		
+		return test_customers;
+	}
+	
+	public static Customer[] concat_CustomerArrays(Customer[] a, Customer[] b)
+	{
+		Customer[] return_array = new Customer[a.length + b.length];
+		 
+		System.arraycopy(a, 0, return_array, 0, a.length);
+	    System.arraycopy(b, 0, return_array, a.length, b.length);
+	    
+	    return return_array;
+	}
+	
+	
+	public static void printCustomerArray(Customer[] done_customers)
+	{
+		System.out.println(done_customers.length);
+		if(done_customers.length > 0)
+		{
+			for(Customer c : done_customers)
+			{
+				if(c != null)
+				{
+				System.out.println(c.getGroceries());
+				}
+			}
+		}
+	}
 	
 	public static void main(String args[])
 	{
-		//skapar tio kunder vi utför testerna med
-		Customer first = new Customer(0,1);
-		Customer second = new Customer(0,2);
-		Customer third = new Customer(0,3);
-		Customer fourth = new Customer(0,4);
-		Customer fifth = new Customer(0,5);
-		Customer sixth = new Customer(0,6);
-		Customer seventh = new Customer(0,7);
-		Customer eight = new Customer(0,8);
-		Customer nineth = new Customer(0,9);
-		Customer tenth = new Customer(0,10);
 		
-		//fantasin var på topp så jag döpte affären till vad en riktig affär heter
 		Store Ica_Luthis = new Store(4);
 		
-		//sätter först in sex nya customers, sen öppnar den en ny kassa. sen sätter den in fyra nya customers.
-		Ica_Luthis.newCustomer(first);
-		Ica_Luthis.newCustomer(second);
-		Ica_Luthis.newCustomer(third);
-		Ica_Luthis.newCustomer(fourth);
-		Ica_Luthis.newCustomer(fifth);
-		Ica_Luthis.newCustomer(sixth);
+		Customer[] test_customers = spawnCustomers(6);
+		Customer[] test_customers2 = spawnCustomers(4);
+		Customer[] done_customers = new Customer[0];
+		Ica_Luthis.fill_Store(test_customers);
 		Ica_Luthis.openNewRegister();
-		Ica_Luthis.newCustomer(seventh);
-		Ica_Luthis.newCustomer(eight);
-		Ica_Luthis.newCustomer(nineth);
-		Ica_Luthis.newCustomer(tenth);
-		
-		System.out.println("Kassa 0 har såhär många i Queue");
+		Ica_Luthis.fill_Store(test_customers2);
+		Ica_Luthis.getAverageQueueLength();
+		/*System.out.println("Kassa 0 har såhär många i Queue");
 		System.out.println(Ica_Luthis.registers[0].getQueueLength());
 		System.out.println("Kassa 1 har såhär många i Queue");
 		System.out.println(Ica_Luthis.registers[1].getQueueLength());
-		System.out.println("Kassa 0:s Queue ser ut såhär:\n");
-		//Ica_Luthis.registers[0].queue.printQueue();
-		System.out.println("Kassa 1:s Queue ser ut såhär:\n");
-		//Ica_Luthis.registers[1].queue.printQueue();
 		
-		
-		//System.out.println("Average queue length in the store is currently:");
-		System.out.println(Ica_Luthis.getAverageQueueLength());
+		System.out.println("Average queue length in the store is currently:");
+		System.out.println(Ica_Luthis.getAverageQueueLength()); */
+		Ica_Luthis.print_registers_in_store();
 		Ica_Luthis.step();
+		done_customers = concat_CustomerArrays(Ica_Luthis.getDoneCustomers(), done_customers);
+		printCustomerArray(done_customers);
+		
+		
+		
+		Ica_Luthis.step();
+		done_customers = concat_CustomerArrays(Ica_Luthis.getDoneCustomers(), done_customers);
+		printCustomerArray(done_customers);
+		Ica_Luthis.step();
+		done_customers = concat_CustomerArrays(Ica_Luthis.getDoneCustomers(), done_customers);
+		printCustomerArray(done_customers);
+		Ica_Luthis.step();
+		done_customers = concat_CustomerArrays(Ica_Luthis.getDoneCustomers(), done_customers);
+		printCustomerArray(done_customers);
+		Ica_Luthis.step();
+		done_customers = concat_CustomerArrays(Ica_Luthis.getDoneCustomers(), done_customers);
+		printCustomerArray(done_customers);
+		Ica_Luthis.step();
+		done_customers = concat_CustomerArrays(Ica_Luthis.getDoneCustomers(), done_customers);
+		printCustomerArray(done_customers);
+		Ica_Luthis.step();
+		done_customers = concat_CustomerArrays(Ica_Luthis.getDoneCustomers(), done_customers);
+		printCustomerArray(done_customers);
+		Ica_Luthis.step();
+		done_customers = concat_CustomerArrays(Ica_Luthis.getDoneCustomers(), done_customers);
+		printCustomerArray(done_customers);
+		
+		Ica_Luthis.step();
+		done_customers = concat_CustomerArrays(Ica_Luthis.getDoneCustomers(), done_customers);
+		printCustomerArray(done_customers);
+		Ica_Luthis.step();
+		done_customers = concat_CustomerArrays(Ica_Luthis.getDoneCustomers(), done_customers);
+		printCustomerArray(done_customers);
+		Ica_Luthis.step();
+		done_customers = concat_CustomerArrays(Ica_Luthis.getDoneCustomers(), done_customers);
+		printCustomerArray(done_customers);
 
-		//System.out.println(Ica_Luthis.registers[0].queue.length);
-		//Ica_Luthis.registers[0].queue.printQueue();
-		//System.out.println(Ica_Luthis.registers[1].queue.length);
-		//Ica_Luthis.registers[1].queue.printQueue();
-		System.out.println(Ica_Luthis.registers[0].getQueueLength());
+		Ica_Luthis.step();
+		done_customers = concat_CustomerArrays(Ica_Luthis.getDoneCustomers(), done_customers);
+		printCustomerArray(done_customers);
+		Ica_Luthis.step();
+		done_customers = concat_CustomerArrays(Ica_Luthis.getDoneCustomers(), done_customers);
+		printCustomerArray(done_customers);
+		Ica_Luthis.step();
+		done_customers = concat_CustomerArrays(Ica_Luthis.getDoneCustomers(), done_customers);
+		printCustomerArray(done_customers);
+		Ica_Luthis.step();
+		done_customers = concat_CustomerArrays(Ica_Luthis.getDoneCustomers(), done_customers);
+		printCustomerArray(done_customers);
+		Ica_Luthis.step();
+		done_customers = concat_CustomerArrays(Ica_Luthis.getDoneCustomers(), done_customers);
+		printCustomerArray(done_customers);
 		
 		
 		Ica_Luthis.print_registers_in_store();
-		
+		System.out.println("HORAHORAHORA");
+		printCustomerArray(done_customers);
 
 		
 		}

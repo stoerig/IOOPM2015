@@ -95,6 +95,11 @@ public class Register
 		return queue.length;
 	}
 	
+	
+	public Queue.Node getFirstPointer()
+	{
+		return queue.first;
+	}
 	// printar hurvida Register är open/closed och hur Register:s Queue är.
 	public void printRegister()
 	{
@@ -102,6 +107,8 @@ public class Register
 		System.out.println("Register är open?");
 		System.out.println(open);
 		System.out.println("Register har hur många i Queue?");
+		System.out.println("Kön ser ut på följande vis:");
+		this.queue.printQueue();
 		System.out.println(getQueueLength());
 	}
 	
