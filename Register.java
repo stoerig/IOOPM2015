@@ -1,7 +1,7 @@
-public class Register extends Queue
+public class Register
 {
-	Queue queue;
-	boolean open;
+	private Queue queue;
+	private boolean open;
 	
 	//Constructor:n för Register, vet inte om man ska låta Register vara Open när man skapar den.
 	public Register()
@@ -38,7 +38,10 @@ public class Register extends Queue
 	{
 		if(hasCustomers())
 		{
+			if(queue.first != null)
+			{
 			queue.first().serve();
+			}
 		}
 	}
 	
@@ -58,7 +61,8 @@ public class Register extends Queue
 	//Kollar om Customer som är först i Queue är klar.
 	public boolean currentCustomerIsDone()
 	{
-		
+	if(queue.first != null)
+	{
 		if (queue.first().isDone() == true)
 		{
 			return true;
@@ -67,7 +71,8 @@ public class Register extends Queue
 		{
 	    	return false;
 		}
-		
+	}
+	return false;	
 	}
 	
 	//lägger Customer C sist i Queue
@@ -93,10 +98,11 @@ public class Register extends Queue
 	// printar hurvida Register är open/closed och hur Register:s Queue är.
 	public void printRegister()
 	{
+		System.out.println("________________________");
 		System.out.println("Register är open?");
 		System.out.println(open);
 		System.out.println("Register har hur många i Queue?");
-		System.out.println(queue.length);
+		System.out.println(getQueueLength());
 	}
 	
 }

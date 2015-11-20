@@ -34,15 +34,13 @@ public class Queue
 			System.out.println(first);
 			if (first == null)
 			{
-				first = new Node();
-				first.element = new_customer;
+				first = new Node(new_customer);
 				last = first;
 			}
 			else
 			{
-				last.next = new Node();
+				last.next = new Node(new_customer);
 				last = last.next;	
-				last.element = new_customer;
 			}
 			length++;
 		
@@ -67,9 +65,8 @@ public class Queue
 				{
 					first = first.next;
 				}
-			
+				length--;
 			}
-			length--;
 		}
 	
 	//returnerar första Customer i Queue
@@ -80,7 +77,7 @@ public class Queue
 		}
 	
 		//printar hur många groceries Customers i Queue:n har
-		public void printQueue()
+	/*	public void printQueue()
 		{
 			System.out.println(first);
 			int i = 0;
@@ -94,6 +91,7 @@ public class Queue
 				i++;
 			}	
 		}
+		*/
 		
 		public void printValueOfFirst()
 		{
@@ -104,11 +102,16 @@ public class Queue
 		class Node {
 			Node next;
 			Customer element;
-
-			/*public Node(Customer init_Customer)
+			
+			public Node(Customer new_customer)
 			{
-				element = init_Customer;
+				element = new_customer;
 				next = null;
-			}*/
+			}
+			
+		public Node getNext()
+		{
+			return next;
+		}
 	}
 }

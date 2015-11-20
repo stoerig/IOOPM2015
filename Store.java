@@ -1,4 +1,4 @@
-public class Store extends Register
+public class Store
 {
 	Register registers[];
 
@@ -6,13 +6,11 @@ public class Store extends Register
 	public Store(int quantity_of_registers)
 	{
 		registers = new Register[quantity_of_registers];
-		int i = 0;
-		while(i<quantity_of_registers)
+		for(int i = 0; i<quantity_of_registers; i++)
 		{
 			registers[i] = new Register();
-			i++;
 		}
-		registers[0].open = true;
+		registers[0].open();
 	}
 	
 	
@@ -21,11 +19,11 @@ public class Store extends Register
 	{
 		float customers_in_store = 0;
 		float number_of_registers = 0;
-		for(Register r : registers)
+		for(Register r : this.registers)
 		{
 			if(r.isOpen())
 			{
-			customers_in_store = customers_in_store + r.queue.length; 
+			customers_in_store = customers_in_store + r.getQueueLength(); 
 			number_of_registers++;
 			}
 		}
@@ -37,20 +35,20 @@ public class Store extends Register
 	//Lägger en Customer i den kassa-kö som är kortast. Den går alltså igenom Kassa-arrayen(Store)
 	public void newCustomer(Customer c)
 	{
-		int min = registers[0].queue.length;
+		int min = registers[0].getQueueLength();
 		int index_of_shortest_queue = 0;
-		for(int i = 1; i < registers.length; i++)
+		for(int i = 1; i < this.registers.length; i++)
 		{
-			if(registers[i].open)
+			if(registers[i].isOpen())
 			{
-				if(registers[i].queue.length < min)
+				if(registers[i].getQueueLength() < min)
 				{
-				min = registers[i].queue.length;
+				min = registers[i].getQueueLength();
 				index_of_shortest_queue = i;
 				}
 			}
 		}
-		registers[index_of_shortest_queue].queue.enqueue(c);
+		registers[index_of_shortest_queue].addToQueue(c);
 	}
 	
 	
@@ -59,7 +57,7 @@ public class Store extends Register
 	{
 		Customer[] done_customers = new Customer[registers.length];
 		int i = 0;
-		for(Register r : registers)
+		for(Register r : this.registers)
 		{
 			if(r.currentCustomerIsDone())
 			{
@@ -75,17 +73,17 @@ public class Store extends Register
 	public void openNewRegister()
 	{
 		int i = 0;
-		while(registers[i].open == true)
+		while(this.registers[i].isOpen() == true)
 		{
 			i++;
 		}
-		registers[i].open = true;
+		registers[i].open();
 	}
 	
 	//utför step från klassen Register på alla öppna kassor.
 	public void step()
 	{
-		for(Register r : registers)
+		for(Register r : this.registers)
 		{
 			if(r.isOpen())
 			{
@@ -97,7 +95,7 @@ public class Store extends Register
 	//ska lista alla kassor med index-nummer och printa hur många som är i kön och om den är öppen. Den gör de två sista grejerna.
 	public void print_registers_in_store()
 	{
-		for(Register r : registers)
+		for(Register r : this.registers)
 		{
 			if(r != null)
 			{
@@ -109,4 +107,5 @@ public class Store extends Register
 			}
 		}
 	}
+	
 }
