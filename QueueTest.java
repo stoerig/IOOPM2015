@@ -26,10 +26,40 @@ public class QueueTest {
 	    return return_array;
 	}
 	
+	public static int getAmountOfDoneCustomers(Customer[] messy_array)
+	{
+		int i = 0;
+		for(Customer c : messy_array)
+		{
+			if(c != null)
+			{
+				if(c.getGroceries() == 0)
+				{
+					i++;
+				}
+			}
+		}
+		return i;
+	}
+	
+	public static Customer[] cleanupCustomerArray(Customer[] messy_array)
+	{
+		Customer[] tidy_array = new Customer[getAmountOfDoneCustomers(messy_array)];
+		int i = 0;
+		for(Customer c : messy_array)
+		{
+			if(c != null)
+			{
+				tidy_array[i] = c;
+				i++;
+			}
+		}
+		return tidy_array;
+	}
+	
 	
 	public static void printCustomerArray(Customer[] done_customers)
 	{
-		System.out.println(done_customers.length);
 		if(done_customers.length > 0)
 		{
 			for(Customer c : done_customers)
@@ -46,7 +76,6 @@ public class QueueTest {
 	{
 		
 		Store Ica_Luthis = new Store(4);
-		
 		Customer[] test_customers = spawnCustomers(6);
 		Customer[] test_customers2 = spawnCustomers(4);
 		Customer[] done_customers = new Customer[0];
@@ -119,8 +148,8 @@ public class QueueTest {
 		
 		Ica_Luthis.print_registers_in_store();
 		System.out.println("HORAHORAHORA");
+		cleanupCustomerArray(done_customers);
 		printCustomerArray(done_customers);
-
 		
 		}
 }

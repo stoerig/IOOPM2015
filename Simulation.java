@@ -1,3 +1,4 @@
+import java.util.Random;
 public class Simulation {
 	Store store;
 	private int time;
@@ -21,6 +22,13 @@ public class Simulation {
 		
 	}
 	
-	
+	public void step()
+	{
+		time++;
+		Random generator = new Random();
+		int random_int_0_to_100 = generator.nextInt(((100 - 0) + 1) + 0);
+		int random_int_1_to_maxGroceries = generator.nextInt(((maxGroceries - 1) + 1) + 1);
+		
+	}
 	
 }
