@@ -1,14 +1,14 @@
-import java.util.Random;
+import java.util.Random; //kurwa
 public class Simulation {
 	Store store;
-	private int time;
-	private int intensity;
-	private int maxGroceries;
-	private int tresholdForNewRegister;
-	private int averageWaitTime;
-	private int maxWaitTime;
-	private int customersServed;
-	private Customer newcustomer;
+	public int time;
+	public int intensity;
+	public int maxGroceries;
+	public int tresholdForNewRegister;
+	public int averageWaitTime;
+	public int maxWaitTime;
+	public int customersServed;
+	public Customer newcustomer;
 	
 	public Simulation(Store simStore, int intensity, int maxGroceries, int tresholdForNewRegister)
 	{
@@ -80,12 +80,12 @@ public class Simulation {
 	
 	public void step()
 	{
+		System.out.println("hej");
 		time++;
 		Random generator = new Random();
 		int random_int_0_to_100 = generator.nextInt(((100 - 0) + 1) + 0);
 		int random_int_1_to_maxGroceries = generator.nextInt(((maxGroceries - 1) + 1) + 1);
-		
-		if(random_int_0_to_100 > intensity)
+		if(random_int_0_to_100 < 101) //ska vara mindre än intensity sen
 		{
 			newcustomer = new Customer(time, random_int_1_to_maxGroceries);
 			store.newCustomer(newcustomer);
@@ -105,8 +105,8 @@ public class Simulation {
 		
 		checkifNewMax(born_times);
 		
-		
-		
 	}
+
+	
 	
 }

@@ -1,4 +1,4 @@
-public class Register
+public class Register //kurwa
 {
 	private Queue queue;
 	private boolean open;
@@ -107,8 +107,9 @@ public class Register
 		System.out.println("Register är open?");
 		System.out.println(open);
 		System.out.println("Register har hur många i Queue?");
+		System.out.println(queue.length);
 		System.out.println("Kön ser ut på följande vis:");
-		this.queue.printQueue();
+		this.queue.printQueue(); //ligger i queue
 		System.out.println(getQueueLength());
 	}
 	

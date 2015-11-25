@@ -1,4 +1,4 @@
-public class Store
+public class Store //kurwa
 {
 	Register registers[];
 

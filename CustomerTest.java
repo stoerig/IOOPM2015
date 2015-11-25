@@ -1,4 +1,4 @@
-
+//kurwa
 public class CustomerTest {
 
 	public static void main(String args[])
@@ -12,6 +12,7 @@ public class CustomerTest {
 		System.out.println(x);
 		System.out.println(c.isDone());
 		c.serve();
+		System.out.println(x);
 		System.out.println(c.isDone());
 	}
 	

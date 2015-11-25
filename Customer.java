@@ -1,4 +1,4 @@
-public class Customer 
+public class Customer //kurwa
 {
 	int bornTime;
 	int groceries;
@@ -25,11 +25,12 @@ public class Customer
 	{
 		if (groceries > 0)
 		{
-			groceries--;	
+			groceries--;
+			System.out.println("Customers varor minskar med en från serve i customer");
 		}
 		else
 		{
-			System.out.println("Done customer sent to serve");
+			System.out.println("Customer har inga varor kvar FRÅN SERVE i customer");
 		}
 	}
 	
@@ -38,9 +39,12 @@ public class Customer
 	{
 		if(groceries == 0)
 		{
+			System.out.println("Customer har inga varor kvar från ISDONE i customer");
 			return true;
 		}
-			return false;
+		System.out.println(groceries);
+		System.out.println("Customer har varor kvar, fortsätter serva från isdone i customer");
+		return false;
 	}
 	
 	public int getAmountOfDoneCustomers(Customer[] done_customers)

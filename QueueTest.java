@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.*; //kurwa
 public class QueueTest {
 	
 	
@@ -66,7 +66,7 @@ public class QueueTest {
 			{
 				if(c != null)
 				{
-				System.out.println(c.getGroceries());
+				//System.out.println(c.getGroceries());
 				}
 			}
 		}
@@ -77,19 +77,19 @@ public class QueueTest {
 		
 		Store Ica_Luthis = new Store(4);
 		Customer[] test_customers = spawnCustomers(6);
-		Customer[] test_customers2 = spawnCustomers(4);
+		//Customer[] test_customers2 = spawnCustomers(4);
 		Customer[] done_customers = new Customer[0];
 		Ica_Luthis.fill_Store(test_customers);
 		Ica_Luthis.openNewRegister();
-		Ica_Luthis.fill_Store(test_customers2);
+		//Ica_Luthis.fill_Store(test_customers2);
 		Ica_Luthis.getAverageQueueLength();
-		/*System.out.println("Kassa 0 har såhär många i Queue");
+		System.out.println("Kassa 0 har såhär många i Queue");
 		System.out.println(Ica_Luthis.registers[0].getQueueLength());
-		System.out.println("Kassa 1 har såhär många i Queue");
-		System.out.println(Ica_Luthis.registers[1].getQueueLength());
+		//System.out.println("Kassa 1 har såhär många i Queue");
+		//System.out.println(Ica_Luthis.registers[1].getQueueLength());
 		
 		System.out.println("Average queue length in the store is currently:");
-		System.out.println(Ica_Luthis.getAverageQueueLength()); */
+		System.out.println(Ica_Luthis.getAverageQueueLength()); 
 		Ica_Luthis.print_registers_in_store();
 		Ica_Luthis.step();
 		done_customers = concat_CustomerArrays(Ica_Luthis.getDoneCustomers(), done_customers);

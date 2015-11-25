@@ -1,4 +1,4 @@
-public class Queue
+public class Queue//kurwa
 {
 	Node first;
 	Node last;
@@ -31,7 +31,6 @@ public class Queue
 	//Ställer en Customer sist i Queue
 		public void enqueue(Customer new_customer)
 		{
-			System.out.println(first);
 			if (first == null)
 			{
 				first = new Node(new_customer);
@@ -94,8 +93,8 @@ public class Queue
 		
 		public void printValueOfFirst()
 		{
-			System.out.println(first);
-			System.out.println(last);
+			System.out.printf("värde för First", first);
+			System.out.printf("värde för Last", last);
 		}
 		
 		class Node {
