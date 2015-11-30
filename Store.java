@@ -161,6 +161,7 @@ public class Store //kurwa
 		}
 	}
 	
+	
 	public void fill_Store(Customer[] test_customers)
 	{
 		for(Customer c : test_customers)
