@@ -1,13 +1,13 @@
-public class Simulator{//kurwa
+public class Simulator
+{
 	
 	
     public static void main(String[] args) throws InterruptedException{
-        int steps = 1;
-        Simulation s = new Simulation(simStore, 100, 10, 2);
+        int steps = 200;
+        Store simStore = new Store(4);
+        Simulation s = new Simulation(simStore, 2, 10, 10);
         for(int i = 0; i < steps; i++){
-            System.out.print("test");
             s.step();
-            System.out.println(s);
             Thread.sleep(500);
         }
         System.out.println("");

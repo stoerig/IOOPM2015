@@ -14,6 +14,25 @@ public class Store //kurwa
 	}
 	
 	
+	public Register[] getRegisters() {
+		return registers;
+	}
+
+
+	public void printOpenRegisters()
+	{
+		int i = 0;
+		for(Register r : registers)
+		{
+			if(r.isOpen())
+			{
+				System.out.println(i);
+				i++;
+			}
+		}
+	}
+	
+	
 	//Lägger ihop antalet Customers i varje kassa-kö i Kassa-arrayen(Store) och delar det på antalet kassor som är öppna.
 	public float getAverageQueueLength()
 	{
@@ -70,14 +89,42 @@ public class Store //kurwa
 	
 	//Går igenom Kassa-arrayen(Store) och öppnar första bästa kassa som är stängd.
 	//Jag funderar på att om när man skapar en Store så kanske man borde Skapa kassor och ha dom som closed alla förutom den första(index 0)
-	public void openNewRegister()
+	
+	public boolean allRegistersOpen()
 	{
 		int i = 0;
-		while(this.registers[i].isOpen() == true)
+		for(Register r : this.registers)
 		{
-			i++;
+			if(r.isOpen())
+				{
+					i++;
+				}
 		}
-		registers[i].open();
+		if(i == this.registers.length)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	public void openNewRegister()
+	{
+		if(!allRegistersOpen())
+		{
+			int i = 0;
+			while(this.registers[i].isOpen() == true)
+			{
+				i++;
+			}
+			registers[i].open();
+		}
+			else
+			{
+			System.out.println("All registers alreadya opened");
+			
+			}
 	}
 	
 	//utför step från klassen Register på alla öppna kassor.
@@ -95,16 +142,20 @@ public class Store //kurwa
 	//ska lista alla kassor med index-nummer och printa hur många som är i kön och om den är öppen. Den gör de två sista grejerna.
 	public void print_registers_in_store()
 	{
+		int kassanummer = 0;
 		for(Register r : this.registers)
 		{
 			if(r != null)
 			{
 				if(r.isOpen())
 				{
-				System.out.println("First pekar på:");
+				System.out.println("______________");
+				System.out.println("\nKassanummer");
+				System.out.println(kassanummer);
 				System.out.println(r.getFirstPointer());
 				//här vill jag printa ut vilket index i Kassa-arrayen(Store) kassan jag printar ut har.
 				r.printRegister();
+				kassanummer++;
 				}
 			}
 		}

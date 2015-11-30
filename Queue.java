@@ -1,4 +1,4 @@
-public class Queue//kurwa
+public class Queue
 {
 	Node first;
 	Node last;
@@ -84,7 +84,7 @@ public class Queue//kurwa
 			while(cursor != null)
 			{
 				System.out.printf("kund nummer: %d har såhär många varor:", i);
-				System.out.println(cursor.element.groceries);
+				System.out.println(cursor.element.getGroceries());
 				cursor = cursor.next;
 				i++;
 			}	

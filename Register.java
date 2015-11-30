@@ -1,6 +1,6 @@
-public class Register //kurwa
+public class Register
 {
-	private Queue queue;
+	Queue queue;
 	private boolean open;
 	
 	//Constructor:n för Register, vet inte om man ska låta Register vara Open när man skapar den.
@@ -104,13 +104,10 @@ public class Register //kurwa
 	public void printRegister()
 	{
 		System.out.println("________________________");
-		System.out.println("Register är open?");
-		System.out.println(open);
-		System.out.println("Register har hur många i Queue?");
-		System.out.println(queue.length);
-		System.out.println("Kön ser ut på följande vis:");
-		this.queue.printQueue(); //ligger i queue
+		System.out.println("The queue's length:");
 		System.out.println(getQueueLength());
+		System.out.println("The queue looks like this:");
+		this.queue.printQueue(); //ligger i queue
 	}
 	
 }
