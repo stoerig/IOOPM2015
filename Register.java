@@ -3,37 +3,28 @@ public class Register
 	Queue queue;
 	private boolean open;
 	
-	//Constructor:n för Register, vet inte om man ska låta Register vara Open när man skapar den.
 	public Register()
 	{
 		queue = new Queue();
 		open = false;
 	}
 	
-	// öppnar Register
 	public void open()
 	{
 		open = true;
 	}
 	
-	//Stänger Register
 	
 	public void close()
 	{
 		open = false;
 	}
 	
-	//Kollar om Register är öppen
 	public boolean isOpen()
 	{
-		if (open == true)
-		{
-			return true;
-		}		
-			return false;
+		return open;
 	}
 	
-	//Tar ut den första Customer i Queue och sänker groceries med -1.
 	public void step()
 	{
 		if(hasCustomers())
@@ -45,7 +36,6 @@ public class Register
 		}
 	}
 	
-	//kollar om Queue är tom
 	public boolean hasCustomers()
 	{
 		if (queue.length > 0)
@@ -58,30 +48,27 @@ public class Register
 		}
 	}
 	
-	//Kollar om Customer som är först i Queue är klar.
 	public boolean currentCustomerIsDone()
 	{
-	if(queue.first != null)
-	{
-		if (queue.first().isDone() == true)
+		if(queue.first != null)
 		{
-			return true;
+			if (queue.first().isDone() == true)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
-		else
-		{
-	    	return false;
-		}
-	}
-	return false;	
+		return false;	
 	}
 	
-	//lägger Customer C sist i Queue
 	public void addToQueue(Customer c)
 	{
 		queue.enqueue(c);
 	}
 	
-	//Returnerar första Customer i Queue och tar bort Customer från Queue
 	public Customer removeCurrentCustomer()
 	{
 		Customer done_customer = queue.first();
@@ -89,25 +76,21 @@ public class Register
 		return done_customer;
 	}
 	
-	//Returnerar Queue:s variabel length
 	public int getQueueLength()
 	{
 		return queue.length;
 	}
 	
-	
-	public Queue.Node getFirstPointer()
+	public void registerToString()
 	{
-		return queue.first;
+		if(isOpen())
+		{
+			System.out.println("O");
+			queue.queueToString();
+		}
+		else
+		{
+			System.out.println("X");
+		}
 	}
-	// printar hurvida Register är open/closed och hur Register:s Queue är.
-	public void printRegister()
-	{
-		System.out.println("________________________");
-		System.out.println("The queue's length:");
-		System.out.println(getQueueLength());
-		System.out.println("The queue looks like this:");
-		this.queue.printQueue(); //ligger i queue
-	}
-	
 }

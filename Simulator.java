@@ -2,7 +2,8 @@ import java.util.*;
 
 public class Simulator
 {	
-    public static void main(String[] args) throws InterruptedException{
+    @SuppressWarnings("resource")
+	public static void main(String[] args) throws InterruptedException{
     	Scanner in = new Scanner(System.in);
     	boolean error_flag = true;
     	int user_intensity = 0;
@@ -26,6 +27,10 @@ public class Simulator
     			steps = in.nextInt();
     			System.out.println("How many registers does your store have?: ");
     			amount_of_registers = in.nextInt();
+    			if(amount_of_registers < 1)
+    			{
+    				throw new InputMismatchException();
+    			}
     			Store simStore = new Store(amount_of_registers);
     			Simulation s = new Simulation(simStore, user_intensity, user_maxgroceries, user_tresholdfornewregister);
     			error_flag = false;
@@ -36,11 +41,12 @@ public class Simulator
     		}
     		catch(InputMismatchException inputError)
     		{
-    			System.out.println("\n********** INPUT MUST BE OF TYPE INTEGER!!! **********\n");
+    			System.out.println("\n********** INPUT MUST BE A POSITIVE INTEGER!!! **********\n");
     		
     		}
  
     	}while(error_flag);
+    	
     	System.out.println("");
     	System.out.println("Simulation finished!");
     	in.close();

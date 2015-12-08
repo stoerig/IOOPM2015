@@ -11,10 +11,6 @@ public class Queue
 		length = 0;
 	}
 	
-	
-	//Constructorn för Queue, skapar en tom kö
-	
-	// Uppdaterar och returnerar Queues length variabel.
 		public int length()
 		{
 			int current_length = 0;
@@ -28,7 +24,6 @@ public class Queue
 			return (length);
 		}	
 	
-	//Ställer en Customer sist i Queue
 		public void enqueue(Customer new_customer)
 		{
 			if (first == null)
@@ -46,12 +41,11 @@ public class Queue
 		}
 		
 	
-	//Tar bort första Customer i queue
 		public void dequeue()
 		{
 			if(first == null)
 			{
-				System.out.println("Trying to dequeue already empty queue LOL");
+				throw new NullPointerException();
 			}
 			else
 			{
@@ -68,33 +62,22 @@ public class Queue
 			}
 		}
 	
-	//returnerar första Customer i Queue
-	
 		public Customer first()
 		{
 			return first.element;
 		}
 	
-		//printar hur många groceries Customers i Queue:n har
-		public void printQueue()
+		
+		public void queueToString()
 		{
-			int i = 0;
-			Node cursor = new Node(null); 
-			cursor = first;
-			while(cursor != null)
+			String queue = "";
+			String customer = "@";
+			for(int i = 0; i < length; i++)
 			{
-				System.out.printf("kund nummer: %d har såhär många varor:", i);
-				System.out.println(cursor.element.getGroceries());
-				cursor = cursor.next;
-				i++;
-			}	
-		}
-		
-		
-		public void printValueOfFirst()
-		{
-			System.out.printf("värde för First", first);
-			System.out.printf("värde för Last", last);
+				queue = queue + customer;
+			}
+			
+			System.out.println(queue);
 		}
 		
 		class Node {
