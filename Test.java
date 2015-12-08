@@ -20,7 +20,6 @@ public class Test
 		return test_customers;
 	}
 	
-	@SuppressWarnings("unused")
 	@org.junit.Test
 	public void test() 
 	{
