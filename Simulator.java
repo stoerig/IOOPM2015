@@ -1,5 +1,13 @@
-import java.util.*;
+/**
+ * <p> This class takes input positives integers from the user that are used in the simulation. The variables that are requested from the user are <tt> tresholdForNewRegister, 
+ * intensity, maxAmountOfGroceries, amount_of_registers, steps </tt>
+ * 
+ * @author Edvin Wahlberg
+ * @author David Edehult
+ *
+ */
 
+import java.util.*;
 public class Simulator
 {	
     @SuppressWarnings("resource")
@@ -17,15 +25,15 @@ public class Simulator
     		try
     		{
     			in = new Scanner(System.in);
-    			System.out.println("INPUT YOUR DESIRED VALUE OF INTENSITY: ");
+    			System.out.println("INPUT PERCENTAGE CHANCE OF A CUSTOMER ENTERING THE STORE: ");
     			user_intensity = in.nextInt();
-    			System.out.println("INPUT YOUR DESIRED VALUE OF MaxGroceries: ");
+    			System.out.println("INPUT THE MAX AMOUNT OF GROCERIES A CUSTOMER CAN BRING TO THE REGISTER: ");
     			user_maxgroceries = in.nextInt();
-    			System.out.println("INPUT YOUR DESIRED VALUE OF TRESHOLDFORNEWREGISTER: ");
+    			System.out.println("INPUT WHAT AT WHAT AVERAGE LENGTH OF THE QUEUES IN THE STORE TO SPAWN A NEW REGISTER: ");
     			user_tresholdfornewregister = in.nextInt();
     			System.out.println("HOW MANY STEPS WOULD YOU LIKE THE SIM TO RUN?: ");
     			steps = in.nextInt();
-    			System.out.println("How many registers does your store have?: ");
+    			System.out.println("HOW MANY REGISTERS DOES YOUR STORE HAVE?: ");
     			amount_of_registers = in.nextInt();
     			if(amount_of_registers < 1)
     			{
