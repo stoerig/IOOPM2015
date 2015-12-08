@@ -20,6 +20,7 @@ public class Test
 		return test_customers;
 	}
 	
+	@SuppressWarnings("unused")
 	@org.junit.Test
 	public void test() 
 	{
@@ -33,13 +34,14 @@ public class Test
 		test_store.openNewRegister();
 		test_store.fill_Store(test_customers2);
 		
-		assertEquals("First-pointer of newly spawned Queue is NULL", test_empty_queue.first, null);
-		assertEquals("Last-pointer of newly spawned Queue is NULL", test_empty_queue.last, null);
 		assertEquals("isDone works: ", test_done_customer.isDone(), true);
 		assertEquals("isDone works: ", test_not_done_customer.isDone(), false);
 		assertEquals("Does averageQueueLength work?:", test_store.getAverageQueueLength() == 15.0, true);
 		assertEquals("First register queue length: ", test_store.registers[0].getQueueLength() == 20, true);
 		assertEquals("First register queue length: ", test_store.registers[1].getQueueLength() == 10, true);
+		assertNull(test_empty_queue.first);
+		assertNull(test_empty_queue.last);
+		assertTrue(!test_store.allRegistersOpen());
 	}
 
 }
