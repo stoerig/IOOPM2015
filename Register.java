@@ -118,6 +118,13 @@ public class Register
 		queue.enqueue(c);
 	}
 	
+	public void addToQueue(Customer c, int x)
+	{
+		for(int i = 0; i < x; i++){
+			queue.enqueue(c);	
+		}
+	}
+	
 	/**
 	 * <p> dequeue's the first customer in the queue and returns it.
 	 * @return customer first in queue

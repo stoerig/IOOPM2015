@@ -7,10 +7,11 @@
  * @author David Edehult
  *
  */
+
 public class Customer
 {
 	private final int bornTime;
-	private int groceries;
+	protected int groceries;
 	
 	/**
 	 * 
@@ -22,6 +23,7 @@ public class Customer
 		bornTime = init_bornTime;
 		groceries = init_groceries;
 	}
+	
 	
 	/**
 	 * 
@@ -63,9 +65,6 @@ public class Customer
 		{
 			groceries--;
 		}
-		else
-		{
-		}
 	}
 	
 	/**
@@ -97,5 +96,4 @@ public class Customer
 		}
 		return i;
 	}
-	
 }

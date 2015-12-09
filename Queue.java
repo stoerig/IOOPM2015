@@ -29,6 +29,7 @@ public class Queue
 		length = 0;
 	}
 	
+	
 	/**
 	 * <p> iterates through the queue and counts how many elements that it holds
 	 * @return int that represents the amount of element in the queue
@@ -66,6 +67,7 @@ public class Queue
 			length++;
 		
 		}
+	
 		
 		/**
 		 * <p> dereferences the head of the Queue
